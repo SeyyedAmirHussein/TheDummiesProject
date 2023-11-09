@@ -1,0 +1,127 @@
+// The Dummies Project .
+
+// The Main Code OF The Dummies Project . .C
+
+// In this program, The Dummies go from the Middle OF The LCD Screen to the corner OF the LCD Screen and then to the Bottom Line and from there to The Middle OF The LCD Screen .
+
+
+
+
+#include <LiquidCrystal.h>                                                                                                      // Library Required for this Project .
+const int rs = 12, en = 11, d4 = 5, d5 = 4, d6 = 3, d7 = 2;                                                                    // Definition of Different Bases .
+LiquidCrystal LCD (rs, en, d4, d5, d6,  d7);                                                                                  // Definition of Different Bases .
+
+
+byte armsDown[8] = {
+
+
+  0b00100,
+  0b01010,
+  0b00100,
+  0b00100,
+  0b01110,
+  0b10101,
+  0b00100,
+  0b01010,
+
+
+};
+
+
+byte armsUp[8] = {
+
+
+  0b00100,
+  0b01010,
+  0b00100,
+  0b10101,
+  0b01110,
+  0b00100,
+  0b00100,
+
+
+};
+
+
+void setup () {
+
+
+  LCD.begin (16, 2);                                                                                                                // Introducing LCD Resolution .
+  LCD.createChar (0, armsDown);
+  LCD.createChar (1, armsUp);
+
+
+}
+
+
+void loop () {
+
+
+  for (int i = 7; i> -1; i--) {
+
+
+    if (i & 2 == 0) {
+
+
+    LCD.setCursor (i, 0);
+    LCD.write (byte(1) );
+    LCD.setCursor (15 - i, 0);
+    LCD.write (byte(1) );
+    delay (500);                                                                                                   // Running the Delay Function (0.5 Seconds) . :
+    LCD.clear ();                                                                                                 // Clears the LCD Screen and Positions the Cursor in the Upper-Left Corner .
+
+
+  }
+
+
+  else {
+
+
+  LCD.setCursor (i, 0);
+  LCD.write (byte (0) );
+  LCD.setCursor (15 - i, 0);
+  LCD.write (byte (0) );
+  delay (500);                                                                                           // Running the Delay Function (0.5 Seconds) . :
+  LCD.clear ();                                                                                         // Clears the LCD Screen and Positions the Cursor in the Upper-Left Corner .
+
+
+  }
+
+
+}
+
+for (int i = 0; i < 8; i++) {
+
+
+    if (i % 2 == 0){
+
+
+    LCD.setCursor (i, 1);
+    LCD.write (byte (1) );
+    LCD.setCursor (15 - i, 1);
+    LCD.write (byte (1) );
+    delay (500);                                                                              // Running the Delay Function (0.5 Seconds) . :
+    LCD.clear ();                                                                            // Clears the LCD Screen and Positions the Cursor in the Upper-Left Corner .
+
+
+  }
+
+
+  else {
+
+
+  LCD.setCursor (i, 1);
+  LCD.write (byte (0) );
+  LCD.setCursor (15 - i, 1);
+  LCD.write (byte (0) );
+  delay (500);                                                                    // Running the Delay Function (0.5 Seconds) . :
+  LCD.clear ();                                                                   // Clears the LCD Screen and Positions the Cursor in the Upper-Left Corner .
+
+
+  }
+
+
+}
+
+
+}
