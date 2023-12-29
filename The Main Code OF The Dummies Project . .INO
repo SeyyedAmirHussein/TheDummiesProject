@@ -2,7 +2,7 @@
 
 // In this program, The Dummies go from the Middle OF The LCD Screen to the corner OF the LCD Screen and then to the Bottom Line and from there to The Middle OF The LCD Screen .
 
-// The Main Code OF The Dummies Project . .INO .
+// The Main Code OF The Dummies Project . . INO . .
 
 
 
